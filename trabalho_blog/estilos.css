@@ -1,5 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+/* estilos.css modificado para NAV e ASIDE fixos */
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    /* Espaço extra no topo ao pular para âncoras */
+    scroll-padding-top: 95px; /* Ajuste se a altura do header mudar */
+}
 
 body {
    color: white;
@@ -7,252 +14,77 @@ body {
    background-image: linear-gradient(to left, gray, rgb(0, 168, 154));
    font-family: Arial, Helvetica, sans-serif;
    margin: 0;
+   /* Espaço no topo para o header fixo */
+   padding-top: 85px; /* Ajuste se a altura do header mudar */
 }
 
-
-h1 {
-   font-size: 5rem;  
-   text-transform: uppercase;
-}
-
-
-h2 {
-  
-   border-bottom: 1px solid white;
-   padding-bottom: .5rem;
-}
-
-
-h1, footer {
+/* --- Cabeçalho Fixo (sem alterações) --- */
+#topo {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 1000;
    text-align: center;
    background-color: white;
    color: white;
    margin: 0;
    background-image: linear-gradient(to right, gray, black);
+   height: 85px; /* ALTURA DO HEADER - AJUSTE SE NECESSÁRIO */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   box-sizing: border-box;
 }
 
-
-footer p {
+#topo h1 {
+   font-size: 4rem;
+   text-transform: uppercase;
    margin: 0;
-   padding: 1rem;
+   line-height: 1;
 }
 
-
-
-
-.vermelha {
-   color: #ff0000;
+/* --- Layout Principal (Container) --- */
+#leiaute-flex {
+   /* display: flex; */ /* REMOVIDO - nav e aside agora são fixed */
+   /* padding-left: 264px; */ /* REMOVIDO - main terá margens */
+   box-sizing: border-box;
+   /* Este container agora serve principalmente para agrupar,
+      a menos que você adicione outros filhos diretos que não sejam main/nav/aside */
 }
 
-
-.verde {
-   color: #00ff00;
+/* --- Navegação Fixa (Esquerda) --- */
+#leiaute-flex > nav {
+    position: fixed;
+    top: 85px; /* Abaixo do header (altura do #topo) */
+    left: 0;
+    width: 200px; /* LARGURA da NAV - ajuste se necessário */
+    height: calc(100vh - 85px); /* Altura da tela menos header */
+    overflow-y: auto;
+    z-index: 900;
+    background-color: rgb(113, 124, 123);
+    color: black;
+    padding: 32px;
+    margin: 0;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 0;
+    box-sizing: border-box;
 }
 
-
-.azul {
-   color: #0000ff;
-}
-
-
-.preta {
-   color: #000000
-}
-
-
-.branca {
-   color: #ffffff
-}
-
-
-.cinza-claro {
-   color: #aaaaaa
-}
-
-
-.cinza-escuro {
-   color: #666666
-}
-
-
-.amarelo {
-   color: #ffff00;
-}
-
-
-.rosa {
-   color: #ffc0cb;
-}
-
-
-.verdana {
-   font-family: verdana;
-}
-
-
-.monospace {
-   font-family: monospace, 'Courier New', Courier;
-}
-
-
-.calibri {
-   font-family:  Calibri, 'Gill Sans', 'Gill Sans MT','Trebuchet MS', sans-serif;
-}
-
-
-.dancing {
-   font-family: "Dancing Script", cursive;
-}
-
-
+/* --- Conteúdo Principal (Central e Rolável) --- */
 main {
-   width: 50%;
-   margin: auto;
+   /* flex-grow: 1; */ /* REMOVIDO */
+   padding: 1px 32px; /* Adiciona padding interno vertical mínimo e horizontal */
+                        /* O 1px vertical ajuda a evitar colapso de margem com articles */
+   /* DEFINE MARGENS para dar espaço para NAV e ASIDE fixos */
+   margin-left: 264px;  /* Largura da NAV (200) + Padding NAV (32*2) */
+   margin-right: 314px; /* Largura do ASIDE (250) + Padding ASIDE (32*2) */
+   /* AJUSTE ESTAS MARGENS se a largura/padding da NAV ou ASIDE mudar */
+   box-sizing: border-box;
 }
 
-
-.justificado {
-   text-align: justify;
-}
-
-
-.direita {
-   text-align: right;
-}
-
-
-.data-autor {
-   font-style: italic;
-}
-
-
-.negrito {
-   font-weight: bold;
-}
-
-
-.italico {
-   font-style: italic;
-}
-
-
-
-
-.sublinhado {
-   text-decoration: underline;
-}
-
-
-.tachado {
-   text-decoration: line-through;
-}
-
-
-ul {
-   list-style-type: square;
-}
-
-
-ul ul {
-   list-style-type: circle;
-}
-
-
-ol {
-   list-style-type: upper-roman;
-}
-
-
-.lista-seta1 {
-   list-style-image: url("imagens/seta1.png");
-}
-
-
-.lista-seta2 {
-   list-style-image: url("imagens/seta2.png");
-}
-
-
-a:link, a:visited {
-   color: #bdbdbd;
-   text-decoration: none;
-}
-
-
-
-
-a:hover, a:active {
-   color: white;
-   text-decoration: underline;
-}
-
-
-.tabela1 {
-   width: 100%;
-}
-
-
-.tabela1 th {
-   background-color: #000000;
-   color: white;
-   padding: 10px;
-}
-
-
-.tabela1 td, .tabela2 td {
-   color: white;
-   background-color: rgb(88, 64, 4);
-   padding: 10px;
-}
-
-
-.tabela2 .linha-impar {
-   color: white;
-   background-color: rgb(7, 59, 203);
-   padding: 10px;
-}
-
-
-.tabela2 tr {
-   color: white;
-   background-color: rgba(203, 157, 7, 0.762);
-   padding: 10px;
-}
-
-
-.preenchimento {
-   background-color: green;
-}
-
-
-.bordas1 {
-   border: 1px solid white;
-}
-
-
-.bordas2 {
-   border-top: 2px dotted green;
-   border-right: 2px dashed blue;
-   border-bottom: 2px dotted green;
-   border-left: 2px dashed blue;
-}
-
-
-.margens {
-   border: 1px solid white;
-   margin: 50px 10px 10px 50px;
-   padding: 10px 0px 10px 10px;
-  
-}
-
-
-.comprimento {
-   width: 50px;
-   background-color: cyan;
-}
-
-
-article, aside, nav {
+/* --- Artigos dentro do Main (sem alterações significativas) --- */
+article {
    background-color: rgb(113, 124, 123);
    color: black;
    padding: 32px;
@@ -262,20 +94,163 @@ article, aside, nav {
    border-radius: 10px;
 }
 
+/* --- Sidebar Fixa (Direita) --- */
+aside {
+    position: fixed; /* FIXA O ASIDE */
+    top: 85px;      /* Abaixo do header (altura do #topo) */
+    right: 0;       /* Alinha à direita */
+    width: 250px;   /* LARGURA do ASIDE - ajuste se necessário */
+    height: calc(100vh - 85px); /* Altura da tela menos header */
+    overflow-y: auto; /* Scroll interno se necessário */
+    z-index: 900;   /* Mesmo nível da NAV */
 
-article {
-   width: 600px;
+    /* Estilos originais mantidos/ajustados */
+    background-color: rgb(113, 124, 123);
+    color: black;
+    padding: 32px;
+    /* margin-top: 32px; */ /* Removido */
+    /* margin-bottom: 32px; */ /* Removido */
+    margin-left: 0; /* Removido */
+    box-shadow: -4px 4px 4px 1px rgba(0, 0, 0, 0.4); /* Sombra para a esquerda */
+    border-radius: 0; /* Remove borda arredondada */
+    box-sizing: border-box;
+    /* align-self: flex-start; */ /* Removido */
+    /* flex-shrink: 0; */ /* Removido */
 }
 
 
-#leiaute-flex{
-   display: flex;
+h2 {
+   border-bottom: 1px solid black; /* Era white, mudei para black */
+   padding-bottom: .5rem;
+   color: black;
 }
 
-nav, aside {
-   width: 200 px;
-   margin-left: 32px;
-   margin-right: 32px;
+/* --- Rodapé (sem alterações) --- */
+footer {
+   text-align: center;
+   background-color: white;
+   color: white;
+   margin: 0;
+   background-image: linear-gradient(to right, gray, black);
+   clear: both;
+   position: relative;
+   z-index: 1;
+}
+
+footer p {
+   margin: 0;
+   padding: 1rem;
 }
 
 
+/* --- Cores (mantidas) --- */
+.vermelha { color: #ff0000; }
+.verde { color: #00ff00; }
+.azul { color: #0000ff; }
+.preta { color: #000000; }
+.branca { color: #ffffff; }
+.cinza-claro { color: #aaaaaa; }
+.cinza-escuro { color: #666666; }
+.amarelo { color: #ffff00; }
+.rosa { color: #ffc0cb; }
+
+/* --- Fontes (mantidas) --- */
+.verdana { font-family: verdana; }
+.monospace { font-family: monospace, 'Courier New', Courier; }
+.calibri { font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif; }
+.dancing { font-family: "Dancing Script", cursive; }
+
+/* --- Alinhamentos e Estilos de Texto (mantidos) --- */
+.justificado { text-align: justify; }
+.direita { text-align: right; }
+.data-autor { font-style: italic; }
+.negrito { font-weight: bold; }
+.italico { font-style: italic; }
+.sublinhado { text-decoration: underline; }
+.tachado { text-decoration: line-through; }
+
+/* --- Listas (ajustes de cor e nav mantidos) --- */
+ul, ol, dl { color: black; }
+
+nav ul, aside ul { /* Aplicar estilo base à lista do aside também */
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+nav ul li a, aside ul li a { /* Aplicar estilo base aos links do aside também */
+    display: block;
+    padding: 8px 0;
+    color: black;
+    text-decoration: none;
+}
+nav ul li a:hover, nav ul li a:active,
+aside ul li a:hover, aside ul li a:active {
+    color: #333;
+    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Demais estilos de lista mantidos */
+ul { list-style-type: square; } /* Será aplicado dentro de article */
+ul ul { list-style-type: circle; }
+ol { list-style-type: upper-roman; }
+.lista-seta1 { list-style-image: url("imagens/seta1.png"); }
+.lista-seta2 { list-style-image: url("imagens/seta2.png"); }
+
+/* --- Links (ajustes de cor mantidos) --- */
+a:link, a:visited {
+   color: #0000EE; /* Azul padrão dentro do conteúdo principal */
+   text-decoration: none;
+}
+a:hover, a:active {
+   color: #DD0000; /* Vermelho no hover/active */
+   text-decoration: underline;
+}
+/* Links específicos de NAV/ASIDE já tratados */
+/* Links do Footer */
+footer a:link, footer a:visited { color: #bdbdbd; }
+footer a:hover, footer a:active { color: white; }
+
+
+/* --- Tabelas (ajustes de cor mantidos) --- */
+.tabela1, .tabela2 {
+   width: 100%;
+   border-collapse: collapse;
+   margin-bottom: 1em;
+   color: black;
+}
+.tabela1 th, .tabela2 th {
+   background-color: #555;
+   color: white;
+   padding: 10px;
+   text-align: left;
+}
+.tabela1 td, .tabela2 td {
+   color: black;
+   background-color: #f0f0f0;
+   padding: 10px;
+   border: 1px solid #ccc;
+}
+.tabela2 tr:nth-child(even) td {
+    background-color: #e0e0e0;
+}
+
+/* --- Box Model (mantido) --- */
+.preenchimento { background-color: green; }
+.bordas1 { border: 1px solid black; }
+.bordas2 {
+   border-top: 2px dotted green;
+   border-right: 2px dashed blue;
+   border-bottom: 2px dotted green;
+   border-left: 2px dashed blue;
+}
+.margens {
+   border: 1px solid black;
+   margin: 50px 10px 10px 50px;
+   padding: 10px 0px 10px 10px;
+}
+.comprimento {
+   width: 50px;
+   background-color: cyan;
+}
