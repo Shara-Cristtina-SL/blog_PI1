@@ -7,11 +7,10 @@
     <link href="estilos.css" rel="stylesheet">
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <style>
-        /* Adicionado para teste de rolagem suave (opcional) */
+        /* Adicionado para teste de rolagem suave  */
         html {
             scroll-behavior: smooth;
-            /* Se seu header for fixo, ajuste este valor para a altura dele */
-            /* scroll-padding-top: 60px; */
+            
         }
     </style>
 </head>
@@ -25,10 +24,10 @@
             <h3>Seções</h3>
             <ul>
                 <!-- Links apontando para os IDs das seções -->
-                <li><a href="#topo">Topo da página</a></li> 
+                <li><a href="#topo">Topo da página</a></li>
                 <li><a href="#campos-modernos">Registro</a></li>
                 <li><a href="#tabelas">Tabela de qualitativo</a></li>
-                <li><a href="#listas">Listas</a></li> 
+                <li><a href="#listas">Listas</a></li>
                 <li><a href="#espacamentos">Espaçamentos</a></li>
                 <li><a href="#fontes">Fontes</a></li>
                 <li><a href="#cores">Cores</a></li>
@@ -86,6 +85,7 @@
                         mensagem.style.display = "block";
                     });
                 </script>
+                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
             <!-- Seção Tabelas com ID adicionado -->
@@ -124,10 +124,12 @@
                         </tr>
                     </tbody>
                 </table>
-                <article class="comentario-simulado" style="margin-top: 1em; padding: 0.5em; border-left: 3px solid #ccc; font-style: italic; color: #444;">
-                    <p><strong>Comentário (Shara):</strong> Quem colocou essa mulecagem aí? Naah, já sei... °_° 
-                    Aceito deixar, mas o responsável vai ter que me dar R$600,00</p>
-               </article>
+                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
+                <article class="comentario-simulado"
+                    style="margin-top: 1em; padding: 0.5em; border-left: 3px solid #ccc; font-style: italic; color: #444;">
+                    <p><strong>Comentário - por Shara:</strong> Quem colocou essa mulecagem aí? Naah, já sei... °_°
+                        Aceito deixar, mas o responsável vai ter que me dar R$600,00 (21/04/25 - 18:30)</p>
+                </article>
             </article>
 
             <article id="listas">
@@ -155,6 +157,7 @@
                 <dd>ESTE</dd>
                 <dd>RCO</dd>
                 Está interessado em comprar RCO ?
+                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
 
@@ -176,41 +179,43 @@
                     about it, you will find a core feeling that made that decision (empathy, for example, is a feeling
                     that makes you make a decision because it will be good for someone else other than you), as all
                     things everyone does in life.</p>
+                    <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
+
             <!-- Seção Fontes com ID adicionado -->
-           <!-- Seção Fontes com ID adicionado -->
-<article id="fontes">
-    <h2 class="titulo-articles">Fontes</h2>
+            <article id="fontes">
+                <h2 class="titulo-articles">Fontes</h2>
 
-    <!-- Exibe a frase com a fonte selecionada -->
-    <p id="frase">"Instituto Federal do Piauí"</p>
+                <!-- Exibe a frase com a fonte selecionada -->
+                <p id="frase">"Instituto Federal do Piauí"</p>
 
-    <!-- Seletor de fontes -->
-    <label for="fontes-select">Escolha uma fonte:</label>
-    <select id="fontes-select" onchange="alterarFonte()">
-        <option value="Verdana">Verdana</option>
-        <option value="Monospace">Monospace</option>
-        <option value="Calibri">Calibri</option>
-        <option value="Dancing Script">Dancing</option>
-        <option value="Arial">Arial</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Courier New">Courier New</option>
-        <option value="Tahoma">Tahoma</option>
-        <option value="Impact">Impact</option>
-    </select>
-</article>
+                <!-- Seletor de fontes -->
+                <label for="fontes-select">Escolha uma fonte:</label>
+                <select id="fontes-select" onchange="alterarFonte()">
+                    <option value="Verdana">Verdana</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="Calibri">Calibri</option>
+                    <option value="Dancing Script">Dancing</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Impact">Impact</option>
+                </select>
+                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
+            </article>
 
-<script>
-    function alterarFonte() {
-        // Obtém a fonte selecionada no select
-        const fonteSelecionada = document.getElementById('fontes-select').value;
-        
-        // Alterar a fonte da frase
-        document.getElementById('frase').style.fontFamily = fonteSelecionada;
-    }
-</script>
+            <script>
+                function alterarFonte() {
+                    // Obtém a fonte selecionada no select
+                    const fonteSelecionada = document.getElementById('fontes-select').value;
+
+                    // Alterar a fonte da frase
+                    document.getElementById('frase').style.fontFamily = fonteSelecionada;
+                }
+            </script>
 
 
 
@@ -221,64 +226,66 @@
                 <p class="italico">Italico</p>
                 <p class="sublinhado">sublinhado</p>
                 <p class="tachado">Tachado</p>
+                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
             <!-- Seção Cores com ID adicionado -->
             <article id="cores">
                 <h2 class="titulo-articles">Estudando sobre cores</h2>
-              
-                <div class="cor-container">
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #ff0000;"></div>
-                    <p style="color: #ff0000;">Vermelha</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #0000ff;"></div>
-                    <p style="color: #0000ff;">Azul</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #00ff00;"></div>
-                    <p style="color: #00ff00;">Verde</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #000000;"></div>
-                    <p style="color: #000000;">Preta</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #ffffff; border: 1px solid #ccc;"></div>
-                    <p style="color: #ffffff;">Branca</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #aaaaaa;"></div>
-                    <p style="color: #aaaaaa;">Cinza Claro</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #666666;"></div>
-                    <p style="color: #666666;">Cinza Escuro</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #ffa500;"></div>
-                    <p style="color: #ffa500;">Laranja</p>
-                  </div>
-              
-                  <div class="cor-item">
-                    <div class="caixa" style="background-color: #ffc0cb;"></div>
-                    <p style="color: #ffc0cb;">Rosa</p>
-                  </div>
-                </div>
-              </article>
-              
-            
-            
 
-            <!-- Seção Símbolos com ID adicionado -->
+                <div class="cor-container">
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ff0000;"></div>
+                        <p style="color: #ff0000;">Vermelha</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #0000ff;"></div>
+                        <p style="color: #0000ff;">Azul</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #00ff00;"></div>
+                        <p style="color: #00ff00;">Verde</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #000000;"></div>
+                        <p style="color: #000000;">Preta</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ffffff; border: 1px solid #ccc;"></div>
+                        <p style="color: #ffffff;">Branca</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #aaaaaa;"></div>
+                        <p style="color: #aaaaaa;">Cinza Claro</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #666666;"></div>
+                        <p style="color: #666666;">Cinza Escuro</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ffa500;"></div>
+                        <p style="color: #ffa500;">Laranja</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ffc0cb;"></div>
+                        <p style="color: #ffc0cb;">Rosa</p>
+                    </div>
+                </div>
+                <p class="data-autor direita">20/04/2025 - por Anônimo</p>
+            </article>
+
+
+
+
+            <!-- Seção Símbolos com ID-->
             <article id="simbolos">
                 <h2 class="titulo-articles">Aprendendo sobre símbolos e emojis</h2>
                 <p>A primeira tag de uma página é a tag é a <html>
@@ -288,6 +295,7 @@
                 <p>Iene japonês: ¥</p>
                 <p>Ômega: Ω</p>
                 <p>Smiley:  </p>
+                <p class="data-autor direita">19/04/2025 - por Anônimo</p>
             </article>
 
             <!-- Seção Sobre o IFPI com ID correspondente -->
@@ -297,6 +305,7 @@
                 <p>Seguem abaixo o link para a página e logo abaixo a sua logomarca:</p>
                 <p><a href="http://www.ifpi.edu.br">Página do IFPI</a></p>
                 <img src="https://www.ifpi.edu.br/topo_ifpi.png" alt="Logomarca do IFPI">
+                <p class="data-autor direita">18/04/2025 - por Anônimo</p>
             </article>
         </main>
         <aside>
@@ -314,7 +323,7 @@
     </div>
     <footer id="rodape">
         <p>Direitos reservados ™ <a href="mailto:ads@ifpi.edu.br">Turma de ADS</a></p>
-    
+
         <div class="membros-container">
             <h3>Membros:</h3>
             <div class="cards-membros">
@@ -330,17 +339,17 @@
             </div>
             <p class="campus">📍 Campus Teresina Central</p>
         </div>
-    
+
         <script>
             // Seleciona todos os links com a classe 'voltar-topo'
             const linksTopo = document.querySelectorAll('.voltar-topo');
-    
+
             // Adiciona um ouvinte de evento de clique para cada link encontrado
             linksTopo.forEach(link => {
                 link.addEventListener('click', function (event) {
                     // 1. Previne o comportamento padrão do link de âncora
                     event.preventDefault();
-    
+
                     // 2. Rola a janela suavemente para o topo absoluto (0, 0)
                     window.scrollTo({
                         top: 0,
@@ -350,8 +359,8 @@
             });
         </script>
     </footer>
-    
-    
+
+
 </body>
 
 </html>
