@@ -173,14 +173,40 @@
             </article>
 
             <!-- Seção Fontes com ID adicionado -->
-            <article id="fontes">
-                <h2 class="titulo-articles">Fontes</h2>
-                <p class="verdana">Lorem Ipsum - Verdana</p>
-                <p class="monospace">Lorem Ipsum - Monospace 123</p>
-                <p class="monospace">Lorem Ipsum - Monospace QQQ</p>
-                <p class="calibri">Lorem Ipsum - Calibri</p>
-                <p class="dancing">Lorem Ipsum - Dancing</p>
-            </article>
+           <!-- Seção Fontes com ID adicionado -->
+<article id="fontes">
+    <h2 class="titulo-articles">Fontes</h2>
+
+    <!-- Exibe a frase com a fonte selecionada -->
+    <p id="frase">"Instituto Federal do Piauí"</p>
+
+    <!-- Seletor de fontes -->
+    <label for="fontes-select">Escolha uma fonte:</label>
+    <select id="fontes-select" onchange="alterarFonte()">
+        <option value="Verdana">Verdana</option>
+        <option value="Monospace">Monospace</option>
+        <option value="Calibri">Calibri</option>
+        <option value="Dancing Script">Dancing</option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="Impact">Impact</option>
+    </select>
+</article>
+
+<script>
+    function alterarFonte() {
+        // Obtém a fonte selecionada no select
+        const fonteSelecionada = document.getElementById('fontes-select').value;
+        
+        // Alterar a fonte da frase
+        document.getElementById('frase').style.fontFamily = fonteSelecionada;
+    }
+</script>
+
+
 
             <!-- Este artigo (Negrito, itálico) não tem link na navegação, não precisa de ID -->
             <article>
@@ -194,17 +220,57 @@
             <!-- Seção Cores com ID adicionado -->
             <article id="cores">
                 <h2 class="titulo-articles">Estudando sobre cores</h2>
-                <p class="vermelha">Vermelha</p>
-                <p class="azul">Azul</p>
-                <p class="verde">Verde de novo em um h6</p>
-                <h6 class="verde">Verde</h6>
-                <p class="preta">Preta</p>
-                <p class="branca">Branca</p>
-                <p class="cinza-claro">Tom de cinza claro</p>
-                <p class="cinza-escuro">Tom de cinza escuro</p>
-                <p class="amarelo">Laranja</p>
-                <p class="rosa">Rosa</p>
-            </article>
+              
+                <div class="cor-container">
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #ff0000;"></div>
+                    <p style="color: #ff0000;">Vermelha</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #0000ff;"></div>
+                    <p style="color: #0000ff;">Azul</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #00ff00;"></div>
+                    <p style="color: #00ff00;">Verde</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #000000;"></div>
+                    <p style="color: #000000;">Preta</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #ffffff; border: 1px solid #ccc;"></div>
+                    <p style="color: #ffffff;">Branca</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #aaaaaa;"></div>
+                    <p style="color: #aaaaaa;">Cinza Claro</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #666666;"></div>
+                    <p style="color: #666666;">Cinza Escuro</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #ffa500;"></div>
+                    <p style="color: #ffa500;">Laranja</p>
+                  </div>
+              
+                  <div class="cor-item">
+                    <div class="caixa" style="background-color: #ffc0cb;"></div>
+                    <p style="color: #ffc0cb;">Rosa</p>
+                  </div>
+                </div>
+              </article>
+              
+            
+            
 
             <!-- Seção Símbolos com ID adicionado -->
             <article id="simbolos">
@@ -242,21 +308,33 @@
     </div>
     <footer id="rodape">
         <p>Direitos reservados ™ <a href="mailto:ads@ifpi.edu.br">Turma de ADS</a></p>
-        <p>Membros:</p>
-        <p>Shara Cristtina</p>
-        <p>Alanda Amábilly</p>
-        <p>Iago Carvalho</p>
-        <p>Campus Teresina Central</p>
+    
+        <div class="membros-container">
+            <h3>Membros:</h3>
+            <div class="cards-membros">
+                <a href="https://github.com/Shara-Cristtina-SL" target="_blank" class="card-membro">
+                    <span>👩‍💻</span> Shara Cristtina
+                </a>
+                <a href="https://github.com/Alanda13" target="_blank" class="card-membro">
+                    <span>👩‍💻</span> Alanda Amábilly
+                </a>
+                <a href="https://github.com/Koquin" target="_blank" class="card-membro">
+                    <span>👨‍💻</span> Iago Carvalho
+                </a>
+            </div>
+            <p class="campus">📍 Campus Teresina Central</p>
+        </div>
+    
         <script>
             // Seleciona todos os links com a classe 'voltar-topo'
             const linksTopo = document.querySelectorAll('.voltar-topo');
-
+    
             // Adiciona um ouvinte de evento de clique para cada link encontrado
             linksTopo.forEach(link => {
                 link.addEventListener('click', function (event) {
                     // 1. Previne o comportamento padrão do link de âncora
                     event.preventDefault();
-
+    
                     // 2. Rola a janela suavemente para o topo absoluto (0, 0)
                     window.scrollTo({
                         top: 0,
@@ -266,6 +344,8 @@
             });
         </script>
     </footer>
+    
+    
 </body>
 
 </html>

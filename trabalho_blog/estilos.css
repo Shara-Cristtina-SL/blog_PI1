@@ -233,21 +233,41 @@ footer p {
 
 
 /* --- Cores (mantidas) --- */
-.vermelha { color: #ff0000; }
-.verde { color: #00ff00; }
-.azul { color: #0000ff; }
-.preta { color: #000000; }
-.branca { color: #ffffff; }
-.cinza-claro { color: #aaaaaa; }
-.cinza-escuro { color: #666666; }
-.amarelo { color: #ffff00; }
-.rosa { color: #ffc0cb; }
+.cor-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   justify-content: center;
+   text-align: center;
+ }
+ 
+ .cor-item {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ .caixa {
+   width: 100px;
+   height: 100px;
+   border-radius: 8px;
+   margin-bottom: 8px;
+ }
+ 
+
 
 /* --- Fontes (mantidas) --- */
 .verdana { font-family: verdana; }
 .monospace { font-family: monospace, 'Courier New', Courier; }
 .calibri { font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif; }
 .dancing { font-family: "Dancing Script", cursive; }
+.arial { font-family: Arial, Helvetica, sans-serif; }
+.georgia { font-family: Georgia, serif; }
+.times { font-family: 'Times New Roman', Times, serif; }
+.courier { font-family: 'Courier New', Courier, monospace; }
+.tahoma { font-family: Tahoma, Geneva, sans-serif; }
+.impact { font-family: Impact, Charcoal, sans-serif; }
+
 
 /* --- Alinhamentos e Estilos de Texto (mantidos) --- */
 .justificado { text-align: justify; }
@@ -400,3 +420,89 @@ footer a:hover, footer a:active { color: white; }
    padding: 2px 6px;
    border-radius: 4px;
 }
+
+/* Estilos dos membros e dos cards */
+.membros-container {
+   padding: 20px;
+   text-align: center;
+   color: white;
+}
+
+/* Cards dos membros */
+.cards-membros {
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+/* Estilo de cada card */
+/* Estilos dos membros e dos cards */
+.membros-container {
+   padding: 20px;
+   text-align: center;
+   color: white;
+}
+
+/* Cards dos membros */
+.cards-membros {
+   display: flex;
+   gap: 20px;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+/* Estilo de cada card */
+.card-membro {
+   background-color: rgba(255, 255, 255, 0.2); /* fundo suave */
+   padding: 15px; /* Diminui o padding */
+   border-radius: 10px;
+   width: 150px; /* Diminui a largura do card */
+   text-decoration: none;
+   color: white; /* Nomes dentro do card serão brancos */
+   font-size: 1.1em; /* Diminui o tamanho da fonte */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Quando o card é clicado (efeito hover) */
+.card-membro:hover {
+   transform: translateY(-5px); /* eleva o card */
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* efeito de sombra mais forte */
+}
+
+/* Estilo para o campus em itálico */
+.campus {
+   font-size: 1.2em;
+   color: white; /* Cor do texto do campus em branco */
+   margin-top: 15px;
+   font-style: italic; /* Deixa o texto em itálico */
+}
+
+/* Adiciona ícone e nome */
+.card-membro span {
+   font-size: 2em;
+   margin-bottom: 10px;
+}
+
+/* Nome do membro em branco */
+.card-membro p {
+   color: white; /* Nomes dos membros em branco */
+   margin: 0;
+}
+
+#fontes {
+   text-align: center;
+}
+
+#frase {
+   font-size: 24px;
+   margin: 20px 0;
+}
+
+
+
