@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="estilos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
+    <style>
+        /* Adicionado para teste de rolagem suave (opcional) */
+        html {
+            scroll-behavior: smooth;
+            /* Se seu header for fixo, ajuste este valor para a altura dele */
+            /* scroll-padding-top: 60px; */
+        }
+    </style>
+</head>
+
+<body>
+    <header id="topo">
+        <h1>blog da turma</h1>
+    </header>
+    <div id="leiaute-flex">
+        <nav>
+            <h3>Seções</h3>
+            <ul>
+                <!-- Links apontando para os IDs das seções -->
+                <li><a href="#topo">Topo da página</a></li>
+                <li><a href="#campos-modernos">Registro</a></li>
+                <li><a href="#tabelas">Tabela de qualitativo</a></li>
+                <li><a href="#listas">Listas</a></li>
+                <li><a href="#espacamentos">Espaçamentos</a></li>
+                <li><a href="#fontes">Fontes</a></li>
+                <li><a href="#cores">Cores</a></li>
+                <li><a href="#simbolos">Símbolos</a></li>
+                <li><a href="#ifpi">Sobre o IFPI</a></li>
+            </ul>
+        </nav>
+        <main>
+            <!-- Seção Campos Modernos com ID corrigido -->
+            <article id="campos-modernos">
+                <h2 class="titulo-articles">Registro pra participar da turma</h2>
+                <form id="formulario">
+                    <div class="campo">
+                        <label for="email" class="campo-moderno">E-mail:</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="data" class="campo-moderno">Data de nascimento:</label>
+                        <input id="data" name="data" type="date" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cor" class="campo-moderno">Cor da pele:</label>
+                        <input id="cor" name="cor" type="color" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="idade" class="campo-moderno">Idade:</label>
+                        <input id="idade" name="idade" type="number" min="0" max="130" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nota" class="campo-moderno">Nota do ENEM:</label>
+                        <input id="nota" name="nota" type="range" min="0" max="1000" required value="5" step="0.1">
+                        <span id="nota-atual"></span>
+                    </div>
+
+                    <input type="submit" value="Enviar">
+                    <p id="mensagem-enviada" style="display: none; color: green; margin-top: 1em;"></p>
+                </form>
+                <script>
+                    function atualizaNota() {
+                        let nota = document.getElementById('nota').value;
+                        document.getElementById('nota-atual').innerText = nota;
+                    }
+
+                    document.getElementById('nota').addEventListener('input', atualizaNota);
+                    atualizaNota();
+
+                    document.getElementById('formulario').addEventListener('submit', function (event) {
+                        event.preventDefault(); // impede o envio real do formulário
+                        const mensagem = document.getElementById('mensagem-enviada');
+                        mensagem.textContent = "Agora você faz parte da melhor turma";
+                        mensagem.style.display = "block";
+                    });
+                </script>
+            </article>
+
+            <!-- Seção Tabelas com ID adicionado -->
+            <article id="tabelas">
+                <h2 class="titulo-articles">Tabela de Preços de qualitativo</h2>
+                <p id="descricao-tabela">Consulte a tabela caso precise de nota que eu tô precisando de grana</p>
+
+                <table class="tabela1">
+                    <thead>
+                        <tr>
+                            <th>Qualitativo</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Pro aluno que é esforçado, mas faltou algo</td>
+                            <td>R$ 50,00</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Pro aluno que é inteligente, mas não esforçado</td>
+                            <td>R$ 120,00</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Pro aluno que não estudou, mas quer o diploma</td>
+                            <td>R$ 200,00</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Pro aluno que tá é de mulecagem</td>
+                            <td><strong>R$ 500,00</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <article class="comentario-simulado"
+                    style="margin-top: 1em; padding: 0.5em; border-left: 3px solid #ccc; font-style: italic; color: #444;">
+                    <p><strong>Comentário (Shara):</strong> Quem colocou essa mulecagem aí? Naah, já sei... °_°
+                        Aceito deixar, mas o responsável vai ter que me dar R$600,00</p>
+                </article>
+            </article>
+
+            <article id="listas">
+                <h2 class="titulo-articles">Listas</h2>
+
+                <p>Lista de atividades</p>
+                <ul>
+                    <li>Fazer o google 2</li>
+                    <li>Criar um novo conceito</li>
+                    <li>Fazer o tcc</li>
+                    <li>Se preocupar</li>
+                </ul>
+
+                <p>Rotina do Iago</p>
+                <ol>
+                    <li>Ir pro ifpi só pra comer de graça</li>
+                    <li>Chegar em casa e pedir pro chatgpt fazer as atividades</li>
+                    <li>Comer denovo quando chegar em casa</li>
+                    <li>Dormir</li>
+                    <li>Sonhar(que terminou o curso)</li>
+                </ol>
+
+                <dt>Anuncio do Professor Ricardo:</dt>
+                <dd>VENDO</dd>
+                <dd>ESTE</dd>
+                <dd>RCO</dd>
+                Está interessado em comprar RCO ?
+            </article>
+
+
+            <!-- Seção Espaçamentos (Alinhamentos) com ID adicionado -->
+            <article id="espacamentos">
+                <h2 class="titulo-articles"> What is The Ruins of Self ?</h2>
+                <p class="justificado">
+                    Ruins of Self is a concept. The concept of what makes us, us.
+                    The idea that we are controlled by the feelings inside us…
+                    they are what drives us through our lives.
+                    All the decisions we make, all the paths we take are,
+                    from the beginning of our lives, made from what we feel.
+                    The profession you choose, you choose because you think is right!
+                    But what makes you think it is right ? The feeling.
+                    You may feel it gives you pleasure; You may feel it gives you comfort.
+                    You may feel it gives you security, but in the end,
+                    it was all because of your feelings.</p>
+                <p class="direita"> Even if you don’t feel good about something you made, if you go inside and think
+                    about it, you will find a core feeling that made that decision (empathy, for example, is a feeling
+                    that makes you make a decision because it will be good for someone else other than you), as all
+                    things everyone does in life.</p>
+            </article>
+
+
+            <!-- Seção Fontes com ID adicionado -->
+            <article id="fontes">
+                <h2 class="titulo-articles">Fontes</h2>
+
+                <!-- Exibe a frase com a fonte selecionada -->
+                <p id="frase">"Instituto Federal do Piauí"</p>
+
+                <!-- Seletor de fontes -->
+                <label for="fontes-select">Escolha uma fonte:</label>
+                <select id="fontes-select" onchange="alterarFonte()">
+                    <option value="Verdana">Verdana</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="Calibri">Calibri</option>
+                    <option value="Dancing Script">Dancing</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Impact">Impact</option>
+                </select>
+            </article>
+
+            <script>
+                function alterarFonte() {
+                    // Obtém a fonte selecionada no select
+                    const fonteSelecionada = document.getElementById('fontes-select').value;
+
+                    // Alterar a fonte da frase
+                    document.getElementById('frase').style.fontFamily = fonteSelecionada;
+                }
+            </script>
+
+
+
+            <!-- Este artigo (Negrito, itálico) não tem link na navegação, não precisa de ID -->
+            <article>
+                <h2 class="titulo-articles">Negrito, itálico etc...</h2>
+                <p class="negrito">Negrito</p>
+                <p class="italico">Italico</p>
+                <p class="sublinhado">sublinhado</p>
+                <p class="tachado">Tachado</p>
+            </article>
+
+            <!-- Seção Cores com ID adicionado -->
+            <article id="cores">
+                <h2 class="titulo-articles">Estudando sobre cores</h2>
+
+                <div class="cor-container">
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ff0000;"></div>
+                        <p style="color: #ff0000;">Vermelha</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #0000ff;"></div>
+                        <p style="color: #0000ff;">Azul</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #00ff00;"></div>
+                        <p style="color: #00ff00;">Verde</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #000000;"></div>
+                        <p style="color: #000000;">Preta</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ffffff; border: 1px solid #ccc;"></div>
+                        <p style="color: #ffffff;">Branca</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #aaaaaa;"></div>
+                        <p style="color: #aaaaaa;">Cinza Claro</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #666666;"></div>
+                        <p style="color: #666666;">Cinza Escuro</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ffa500;"></div>
+                        <p style="color: #ffa500;">Laranja</p>
+                    </div>
+
+                    <div class="cor-item">
+                        <div class="caixa" style="background-color: #ffc0cb;"></div>
+                        <p style="color: #ffc0cb;">Rosa</p>
+                    </div>
+                </div>
+            </article>
+
+
+
+
+            <!-- Seção Símbolos com ID adicionado -->
+            <article id="simbolos">
+                <h2 class="titulo-articles">Aprendendo sobre símbolos e emojis</h2>
+                <p>A primeira tag de uma página é a tag é a <html>
+                </p>
+                <p>Copyright: ©</p>
+                <p>Euro: €</p>
+                <p>Iene japonês: ¥</p>
+                <p>Ômega: Ω</p>
+                <p>Smiley:  </p>
+            </article>
+
+            <!-- Seção Sobre o IFPI com ID correspondente -->
+            <article id="ifpi">
+                <h2 class="titulo-articles">Sobre o IFPI</h2>
+                <p>O Instituto Federal do Piauí é a nossa instuição de ensino.</p>
+                <p>Seguem abaixo o link para a página e logo abaixo a sua logomarca:</p>
+                <p><a href="http://www.ifpi.edu.br">Página do IFPI</a></p>
+                <img src="https://www.ifpi.edu.br/topo_ifpi.png" alt="Logomarca do IFPI">
+            </article>
+        </main>
+        <aside>
+            <h3>Links</h3>
+            <ul>
+                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">HTML no MDN</a></li>
+                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">CSS no MDN</a></li>
+                <li><a href="https://www.w3schools.com/html/" target="_blank">Tutorial HTML - W3Schools</a></li>
+                <li><a href="https://www.w3schools.com/css/" target="_blank">Tutorial CSS - W3Schools</a></li>
+                <li><a href="https://web.dev/" target="_blank">Boas práticas Web.dev</a></li>
+                <li><a href="https://css-tricks.com/snippets/css/" target="_blank">CSS Tricks (snippets)</a></li>
+                <li><a href="https://caniuse.com/" target="_blank">Can I use?</a></li>
+            </ul>
+        </aside>
+    </div>
+    <footer id="rodape">
+        <p>Direitos reservados ™ <a href="mailto:ads@ifpi.edu.br">Turma de ADS</a></p>
+
+        <div class="membros-container">
+            <h3>Membros:</h3>
+            <div class="cards-membros">
+                <a href="https://github.com/Shara-Cristtina-SL" target="_blank" class="card-membro">
+                    <span>👩‍💻</span> Shara Cristtina
+                </a>
+                <a href="https://github.com/Alanda13" target="_blank" class="card-membro">
+                    <span>👩‍💻</span> Alanda Amábilly
+                </a>
+                <a href="https://github.com/Koquin" target="_blank" class="card-membro">
+                    <span>👨‍💻</span> Iago Carvalho
+                </a>
+            </div>
+            <p class="campus">📍 Campus Teresina Central</p>
+        </div>
+
+        <script>
+            // Seleciona todos os links com a classe 'voltar-topo'
+            const linksTopo = document.querySelectorAll('.voltar-topo');
+
+            // Adiciona um ouvinte de evento de clique para cada link encontrado
+            linksTopo.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    // 1. Previne o comportamento padrão do link de âncora
+                    event.preventDefault();
+
+                    // 2. Rola a janela suavemente para o topo absoluto (0, 0)
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth' // 'auto' para rolagem instantânea, 'smooth' para animada
+                    });
+                });
+            });
+        </script>
+    </footer>
+
+
+</body>
+
+</html>
