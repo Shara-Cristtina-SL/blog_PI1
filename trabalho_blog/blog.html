@@ -10,7 +10,7 @@
         /* Adicionado para teste de rolagem suave (opcional) */
         html {
             scroll-behavior: smooth;
-             /* Se seu header for fixo, ajuste este valor para a altura dele */
+            /* Se seu header for fixo, ajuste este valor para a altura dele */
             /* scroll-padding-top: 60px; */
         }
     </style>
@@ -25,11 +25,8 @@
             <h3>Seções</h3>
             <ul>
                 <!-- Links apontando para os IDs das seções -->
-                <li><a href="#box-model">Box Model</a></li>
-                <li><a href="#campos-modernos">Campos Modernos</a></li>
-                <li><a href="#buscas">Formulários de Busca</a></li>
-                <li><a href="#tabelas">Tabelas</a></li>
-                <li><a href="#listas">Listas</a></li>
+                <li><a href="#campos-modernos">Registro</a></li>
+                <li><a href="#tabelas">Tabela de qualitativo</a></li>
                 <li><a href="#espacamentos">Espaçamentos</a></li>
                 <li><a href="#fontes">Fontes</a></li>
                 <li><a href="#cores">Cores</a></li>
@@ -38,260 +35,165 @@
             </ul>
         </nav>
         <main>
-            <!-- Seção Box Model com ID correspondente -->
-            <article id="box-model">
-                <h2>Box model</h2>
-                <p class="preenchimento">Preenchimento</p>
-                <p class="bordas1">Bordas 1 </p>
-                <p class="bordas2">Bordas 2 </p>
-                <p class="margens">Margem interna e externa</p>
-                <p class="comprimento">comprimento</p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
-            </article>
-
             <!-- Seção Campos Modernos com ID corrigido -->
             <article id="campos-modernos">
-                <h2>Campos modernos</h2>
-                <form>
-                    <label for="email">E-Mail:</label>
-                    <input id="email" name="email" type="email" required>
-                    <br>
-                    <label for="data">Data:</label>
-                    <input id="data" name="data" type="date" required>
-                    <br>
-                    <label for="cor">Cor:</label>
-                    <input id="cor" name="cor" type="color" required>
-                    <br>
-                    <label for="Idade">Idade:</label>
-                    <input id="idade" name="idade" type="number" min="0" max="130" required>
-                    <br>
-                    <label for="nota">Nota:</label>
-                    <input id="nota" name="nota" type="range" min="0" max="10" required value="5">
-                    <span id="nota-atual"></span>
-                    <br>
+                <h2 class="titulo-articles">Registro pra participar da turma</h2>
+                <form id="formulario">
+                    <div class="campo">
+                        <label for="email" class="campo-moderno">E-mail:</label>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="data" class="campo-moderno">Data de nascimento:</label>
+                        <input id="data" name="data" type="date" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cor" class="campo-moderno">Cor da pele:</label>
+                        <input id="cor" name="cor" type="color" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="idade" class="campo-moderno">Idade:</label>
+                        <input id="idade" name="idade" type="number" min="0" max="130" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nota" class="campo-moderno">Nota do ENEM:</label>
+                        <input id="nota" name="nota" type="range" min="0" max="1000" required value="5" step="0.1">
+                        <span id="nota-atual"></span>
+                    </div>
+
                     <input type="submit" value="Enviar">
+                    <p id="mensagem-enviada" style="display: none; color: green; margin-top: 1em;"></p>
                 </form>
                 <script>
                     function atualizaNota() {
                         let nota = document.getElementById('nota').value;
                         document.getElementById('nota-atual').innerText = nota;
                     }
-                    document.getElementById('nota').addEventListener('change', atualizaNota);
-                    atualizaNota();
-                </script>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
-            </article>
 
-            <!-- Seção Formulários de Busca com ID adicionado -->
-            <article id="buscas">
-                <h2>Formulários</h2>
-                <p>Busca no google</p>
-                <form action="http://www.google.com/search" method="get">
-                    <input type=text placeholder="Digite sua pesquisa" name="q">
-                    <input type="submit" value="Pesquisar">
-                </form>
-                <p>Pesquisa no Mercado Livre</p>
-                <form action="https://www.mercadolivre.com.br/jm/search">
-                    <input type=text placeholder="Digite sua pesquisa" name="as_word">
-                    <input type="submit" value="Pesquisar">
-                </form>
-                <p>Pesquisa no Amazon</p>
-                <form action="https://www.amazon.com/s">
-                    <input type=text placeholder="Digite sua pesquisa" name="field-keywords">
-                    <select name="url">
-                        <option value="search-alias=toys">Brinquedos</option>
-                        <option value="search-alias=dvd">Filmes</option>
-                        <option value="search-alias=stripbooks-intl-ship">Livros</option>
-                    </select>
-                    <input type="submit" value="Pesquisar">
-                </form>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
+                    document.getElementById('nota').addEventListener('input', atualizaNota);
+                    atualizaNota();
+
+                    document.getElementById('formulario').addEventListener('submit', function (event) {
+                        event.preventDefault(); // impede o envio real do formulário
+                        const mensagem = document.getElementById('mensagem-enviada');
+                        mensagem.textContent = "Agora você faz parte da melhor turma";
+                        mensagem.style.display = "block";
+                    });
+                </script>
             </article>
 
             <!-- Seção Tabelas com ID adicionado -->
             <article id="tabelas">
-                <h2>Tabelas</h2>
-                <p>Abaixo uma tabela 5 linhas e com as colunas numeração, produto, quantidade, e uma linha de totalização utilizando o atributo colspan</p>
+                <h2 class="titulo-articles">Tabela de Preços de qualitativo</h2>
+                <p id="descricao-tabela">Consulte a tabela caso precise de nota que eu to precisando de grana</p>
+
                 <table class="tabela1">
-                    <tr>
-                        <th>Numeração</th>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Preço</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Arroz</td>
-                        <td>2kg</td>
-                        <td>R$ 10,00</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Feijão</td>
-                        <td>1kg</td>
-                        <td>R$ 5,00</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Macarrão</td>
-                        <td>500g</td>
-                        <td>R$ 3,00</td>
-                    </tr>
-                    <tr class="total">
-                        <td colspan="3">Total</td>
-                        <td>R$ 18,00</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Qualitativo</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td>Pro aluno que é esforçado mas faltou algo</td>
+                            <td>R$ 50,00</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Pro aluno que é inteligente mas não esforçado</td>
+                            <td>R$ 120,00</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Pro aluno que não estudou mas quer o diploma</td>
+                            <td>R$ 200,00</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Pro aluno que ta é de mulecagem</td>
+                            <td><strong>R$ 500,00</strong></td>
+                        </tr>
+                    </tbody>
                 </table>
-                <p>Abaixo uma tabela com colunas numeração, produto, quantidade e preço</p>
-                <table class="tabela1">
-                    <tr>
-                        <th>Numeração</th>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Preço</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Arroz</td>
-                        <td>2kg</td>
-                        <td>R$ 10,00</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Feijão</td>
-                        <td>1kg</td>
-                        <td>R$ 5,00</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Macarrão</td>
-                        <td>500g</td>
-                        <td>R$ 3,00</td>
-                    </tr>
-                </table>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
             </article>
 
-            <!-- Este artigo (Lista de links) não tem link na navegação, não precisa de ID -->
-            <article>
-                <h2>Lista de links</h2>
-                <ul>
-                    <li><a href="http://www.google.com">Google</a></li>
-                    <li><a href="http://www.ifpi.edu.br" target="_blank">IFPI</a></li>
-                    <li>
-                        <a href="imagens/perfil.jpg" target="_blank">
-                            <img src="imagens/perfil_thumb.png" alt="Imagem de perfil">
-                        </a>
-                    </li>
-                    <li><a href="#rodape">Fim da página</a></li>
-                </ul>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
-            </article>
-
-            <!-- Seção Listas com ID adicionado -->
             <article id="listas">
-                <h2>Listas</h2>
-                <p>Lista não ordenadas de compras</p>
+                <h2 class="titulo-articles">Listas</h2>
+
+                <p>Lista de atividades</p>
                 <ul>
-                    <li>Arroz</li>
-                    <li>Feijão</li>
-                    <li>Macarrão</li>
-                    <li>Carne</li>
-                    <li>Frango</li>
+                    <li>Fazer o google 2</li>
+                    <li>Criar um novo conceito</li>
+                    <li>Fazer o tcc</li>
+                    <li>Se preocupar</li>
                 </ul>
-                <p>Lista ordenada de prioridades</p>
+
+                <p>Rotina</p>
                 <ol>
-                    <li>Estudar</li>
-                    <li>Trabalhar</li>
-                    <li>Descansar</li>
-                    <li>Comer</li>
-                    <li>Estudar mais</li>
+                    <li>Ir pro ifpi só pra comer de graça</li>
+                    <li>Chegar em casa e pedir pro chatgpt fazer as atividades</li>
+                    <li>Comer denovo quando chegar em casa</li>
+                    <li>Dormir</li>
+                    <li>Sonhar(que terminou o curso)</li>
                 </ol>
-                <p>Lista de compras com subitens</p>
-                <ul>
-                    <li>Arroz
-                        <ul>
-                            <li>Arroz integral</li>
-                            <li>Arroz parbolizado</li>
-                            <li>Arroz agulhinha</li>
-                        </ul>
-                    </li>
-                    <li>Feijão</li>
-                    <li>Macarrão
-                        <ul>
-                            <li>Espaguete</li>
-                            <li>Fusilli</li>
-                            <li>Parafuso</li>
-                        </ul>
-                    </li>
-                    <li>Carne
-                        <ul>
-                            <li>Carne de sol</li>
-                            <li>Carne moída</li>
-                            <li>Carne de porco</li>
-                        </ul>
-                    </li>
-                    <li>Frango
-                        <ul>
-                            <li>Peito de frango</li>
-                            <li>Sobrecoxa</li>
-                            <li>Asa de frango</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p>Lista de definições de siglas de computação</p>
-                <dl>
-                    <dt>HTML</dt>
-                    <dd>Hyper Text Markup Language</dd>
-                    <dt>CSS</dt>
-                    <dd>Cascading Style Sheets</dd>
-                    <dt>JS</dt>
-                    <dd>JavaScript</dd>
-                    <dt>PHP</dt>
-                    <dd>Hypertext Preprocessor</dd>
-                </dl>
-                <p>Lista não ordenada usando imagens</p>
-                <ul>
-                    <li class="lista-seta1">item 1</li>
-                    <li class="lista-seta2">item 2</li>
-                    <li class="lista-seta1">item 3</li>
-                    <li class="lista-seta2">item 4</li>
-                </ul>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
+
+                <dt>Anuncio do Professor Ricardo:</dt>
+                <dd>VENDO</dd>
+                <dd>ESTE</dd>
+                <dd>RCO</dd>
+                Está interessado em comprar RCO ?
             </article>
+
 
             <!-- Seção Espaçamentos (Alinhamentos) com ID adicionado -->
             <article id="espacamentos">
-                <h2>Alinhamentos</h2>
-                <p class="justificado">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt officia similique commodi tempore aliquid ipsum nesciunt placeat a. Dolore soluta nesciunt est amet! Maxime nisi illum harum perferendis dolores id. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque, ut distinctio vitae soluta incidunt accusantium possimus nesciunt perspiciatis alias optio esse dicta amet ipsum labore, rerum beatae iste? Iure!</p>
-                <p class="direita">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dignissimos a minus tenetur pariatur itaque deserunt dolor! Eum ipsam nobis iusto quidem ducimus itaque? Error necessitatibus iste dolorem nisi asperiores.Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt officia similique commodi tempore aliquid ipsum nesciunt placeat a. Dolore soluta nesciunt est amet! Maxime nisi illum harum perferendis dolores id.</p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
+                <h2 class="titulo-articles"> What is The Ruins of Self ?</h2>
+                <p class="justificado">
+                    Ruins of Self is a concept. The concept of what makes us, us.
+                    The idea that we are controlled by the feelings inside us…
+                    they are what drives us through our lives.
+                    All the decisions we make, all the paths we take are,
+                    from the beginning of our lives, made from what we feel.
+                    The profession you choose, you choose because you think is right!
+                    But what makes you think it is right ? The feeling.
+                    You may feel it gives you pleasure; You may feel it gives you comfort.
+                    You may feel it gives you security, but in the end,
+                    it was all because of your feelings.</p>
+                <p class="direita"> Even if you don’t feel good about something you made, if you go inside and think
+                    about it, you will find a core feeling that made that decision (empathy, for example, is a feeling
+                    that makes you make a decision because it will be good for someone else other than you), as all
+                    things everyone does in life.</p>
             </article>
 
             <!-- Seção Fontes com ID adicionado -->
             <article id="fontes">
-                <h2>Fontes</h2>
+                <h2 class="titulo-articles">Fontes</h2>
                 <p class="verdana">Lorem Ipsum - Verdana</p>
                 <p class="monospace">Lorem Ipsum - Monospace 123</p>
                 <p class="monospace">Lorem Ipsum - Monospace QQQ</p>
                 <p class="calibri">Lorem Ipsum - Calibri</p>
                 <p class="dancing">Lorem Ipsum - Dancing</p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
             </article>
 
             <!-- Este artigo (Negrito, itálico) não tem link na navegação, não precisa de ID -->
             <article>
-                <h2>Negrito, itálico etc...</h2>
+                <h2 class="titulo-articles">Negrito, itálico etc...</h2>
                 <p class="negrito">Negrito</p>
                 <p class="italico">Italico</p>
                 <p class="sublinhado">sublinhado</p>
                 <p class="tachado">Tachado</p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
             </article>
 
             <!-- Seção Cores com ID adicionado -->
             <article id="cores">
-                <h2>Estudando sobre cores</h2>
+                <h2 class="titulo-articles">Estudando sobre cores</h2>
                 <p class="vermelha">Vermelha</p>
                 <p class="azul">Azul</p>
                 <p class="verde">Verde de novo em um h6</p>
@@ -302,36 +204,27 @@
                 <p class="cinza-escuro">Tom de cinza escuro</p>
                 <p class="amarelo">Laranja</p>
                 <p class="rosa">Rosa</p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
             </article>
 
             <!-- Seção Símbolos com ID adicionado -->
             <article id="simbolos">
-                <h2>Aprendendo sobre símbolos e emojis</h2>
-                <p>A primeira tag de uma página é a tag é a <html></p>
+                <h2 class="titulo-articles">Aprendendo sobre símbolos e emojis</h2>
+                <p>A primeira tag de uma página é a tag é a <html>
+                </p>
                 <p>Copyright: ©</p>
                 <p>Euro: €</p>
                 <p>Iene japonês: ¥</p>
                 <p>Ômega: Ω</p>
                 <p>Smiley:  </p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
             </article>
 
             <!-- Seção Sobre o IFPI com ID correspondente -->
             <article id="ifpi">
-                <h2>Sobre o IFPI</h2>
+                <h2 class="titulo-articles">Sobre o IFPI</h2>
                 <p>O Instituto Federal do Piauí é a nossa instuição de ensino</p>
                 <p>Seguem abaixo o link para a página e logo abaixo a sua logomarca:</p>
                 <p><a href="http://www.ifpi.edu.br">Página do IFPI</a></p>
                 <img src="https://www.ifpi.edu.br/topo_ifpi.png" alt="Logomarca do IFPI">
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
-            </article>
-
-            <!-- Este artigo (Minha primeira postagem) não tem link na navegação, não precisa de ID -->
-            <article>
-                <h2>Minha primeira postagem</h2>
-                <p>Hello, world!</p>
-                <p class="data-autor direita">08/04/2025 - por Ely Miranda<a href="#topo" class="voltar-topo"> ↑ </a></p>
             </article>
         </main>
         <aside>
@@ -357,13 +250,13 @@
         <script>
             // Seleciona todos os links com a classe 'voltar-topo'
             const linksTopo = document.querySelectorAll('.voltar-topo');
-      
+
             // Adiciona um ouvinte de evento de clique para cada link encontrado
             linksTopo.forEach(link => {
-                link.addEventListener('click', function(event) {
+                link.addEventListener('click', function (event) {
                     // 1. Previne o comportamento padrão do link de âncora
                     event.preventDefault();
-      
+
                     // 2. Rola a janela suavemente para o topo absoluto (0, 0)
                     window.scrollTo({
                         top: 0,
@@ -374,4 +267,5 @@
         </script>
     </footer>
 </body>
+
 </html>

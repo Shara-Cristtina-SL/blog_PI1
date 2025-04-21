@@ -18,6 +18,53 @@ body {
    padding-top: 85px; /* Ajuste se a altura do header mudar */
 }
 
+/* Estilização do artigo */
+#espacamentos {
+   padding: 40px;
+   background: linear-gradient(to bottom, #1c1c1c, #2e2e2e);
+   color: #e0e0e0;
+   font-family: 'Georgia', serif;
+   border-radius: 16px;
+   box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+   max-width: 800px;
+   margin: 40px auto;
+}
+
+/* Título com toque dramático */
+#espacamentos h2 {
+   font-size: 2.5em;
+   color: #ffd369;
+   text-align: center;
+   margin-bottom: 30px;
+   text-shadow: 1px 1px 5px #00000080;
+   letter-spacing: 1px;
+}
+
+/* Parágrafo justificado */
+#espacamentos .justificado {
+   text-align: justify;
+   line-height: 1.8;
+   font-size: 1.1em;
+   margin-bottom: 25px;
+   padding-left: 15px;
+   border-left: 4px solid #ffd369;
+}
+
+/* Parágrafo alinhado à direita */
+#espacamentos .direita {
+   text-align: right;
+   font-style: italic;
+   font-size: 1.1em;
+   color: #cccccc;
+   margin-top: 20px;
+}
+
+.titulo-articles {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 2rem;
+   text-align: center;
+   color:rgb(0, 0, 0);
+}
 /* --- Cabeçalho Fixo (sem alterações) --- */
 #topo {
    position: fixed;
@@ -43,6 +90,54 @@ body {
    margin: 0;
    line-height: 1;
 }
+
+.campo {
+   margin-bottom: 20px;
+}
+
+label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+}
+
+input[type="email"],
+input[type="date"],
+input[type="color"],
+input[type="number"],
+input[type="range"] {
+   width: 100%;
+   max-width: 300px;
+}
+
+.tabela1 {
+   border-collapse: collapse;
+   width: 100%;
+   max-width: 800px;
+   margin-top: 20px;
+   font-family: 'Segoe UI', sans-serif;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.tabela1 th, .tabela1 td {
+   border: 1px solid #aaa;
+   padding: 10px;
+   text-align: center;
+}
+
+.tabela1 thead {
+   background-color: #f0f0f0;
+   font-weight: bold;
+}
+
+.tabela1 tbody tr:hover {
+   background-color: #f9f9f9;
+}
+
+#descricao-tabela{
+   text-align: center;
+}
+
 
 /* --- Layout Principal (Container) --- */
 #leiaute-flex {
@@ -87,11 +182,12 @@ main {
 article {
    background-color: rgb(113, 124, 123);
    color: black;
-   padding: 32px;
-   margin-top: 32px;
-   margin-bottom: 32px;
+   padding: 2rem;
+   margin-top: 2rem;
+   margin-bottom: 2rem;
    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.4);
    border-radius: 10px;
+   
 }
 
 /* --- Sidebar Fixa (Direita) --- */
@@ -116,13 +212,6 @@ aside {
     box-sizing: border-box;
     /* align-self: flex-start; */ /* Removido */
     /* flex-shrink: 0; */ /* Removido */
-}
-
-
-h2 {
-   border-bottom: 1px solid black; /* Era white, mudei para black */
-   padding-bottom: .5rem;
-   color: black;
 }
 
 /* --- Rodapé (sem alterações) --- */
@@ -212,7 +301,6 @@ a:hover, a:active {
 footer a:link, footer a:visited { color: #bdbdbd; }
 footer a:hover, footer a:active { color: white; }
 
-
 /* --- Tabelas (ajustes de cor mantidos) --- */
 .tabela1, .tabela2 {
    width: 100%;
@@ -236,21 +324,79 @@ footer a:hover, footer a:active { color: white; }
     background-color: #e0e0e0;
 }
 
-/* --- Box Model (mantido) --- */
-.preenchimento { background-color: green; }
-.bordas1 { border: 1px solid black; }
-.bordas2 {
-   border-top: 2px dotted green;
-   border-right: 2px dashed blue;
-   border-bottom: 2px dotted green;
-   border-left: 2px dashed blue;
+.campo-moderno{
+   margin-top: 10px;
 }
-.margens {
-   border: 1px solid black;
-   margin: 50px 10px 10px 50px;
-   padding: 10px 0px 10px 10px;
+
+/* Estilo base do article */
+#listas {
+   padding: 20px;
+   background-color: rgb(113, 124, 123);
+   border-radius: 12px;
+   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+   font-family: "Segoe UI", sans-serif;
 }
-.comprimento {
-   width: 50px;
-   background-color: cyan;
+
+/* Título com vibe alegre */
+#listas h2 {
+   color: #000000;
+   font-size: 28px;
+   text-shadow: 1px 1px 1px #00000015;
+}
+
+/* Parágrafos */
+#listas p {
+   font-weight: bold;
+   color: #000000;
+   margin-top: 25px;
+   margin-bottom: 10px;
+}
+
+#listas ul ul {
+   list-style-type: "➤ ";
+   padding-left: 20px;
+   color: #555;
+   font-style: italic;
+}
+
+/* Listas ordenadas */
+#listas ol {
+   list-style-type: decimal;
+   padding-left: 25px;
+   color: #1a1a1a;
+}
+
+#listas ol li::marker {
+   color: #ff8c00;
+   font-weight: bold;
+}
+
+/* Lista de definições */
+#listas dl {
+   background: #f9f9f9;
+   border-left: 5px solid #a26eff;
+   padding: 15px;
+   border-radius: 8px;
+   box-shadow: 2px 2px 5px #ccc;
+}
+
+#listas dt {
+   font-weight: bold;
+   color: #000000;
+   margin-top: 10px;
+}
+
+#listas dd {
+   margin-left: 20px;
+   color: #000000;
+   font-style: italic;
+}
+
+/* Subitens ganham destaque visual */
+#listas ul ul li {
+   color: #666;
+   background-color: #fff4d2;
+   margin: 2px 0;
+   padding: 2px 6px;
+   border-radius: 4px;
 }
