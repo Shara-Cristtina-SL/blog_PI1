@@ -4,7 +4,8 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 95px;
+    /* Espaço extra no topo ao pular para âncoras */
+    scroll-padding-top: 95px; /* Ajuste se a altura do header mudar */
 }
 
 body {
@@ -13,9 +14,11 @@ body {
    background-image: linear-gradient(to left, gray, rgb(0, 168, 154));
    font-family: Arial, Helvetica, sans-serif;
    margin: 0;
-   padding-top: 85px; 
+   /* Espaço no topo para o header fixo */
+   padding-top: 85px; /* Ajuste se a altura do header mudar */
 }
 
+/* Estilização do artigo */
 #espacamentos {
    padding: 40px;
    background: linear-gradient(to bottom, #1c1c1c, #2e2e2e);
@@ -27,6 +30,7 @@ body {
    margin: 40px auto;
 }
 
+/* Título com toque dramático */
 #espacamentos h2 {
    font-size: 2.5em;
    color: #ffd369;
@@ -36,6 +40,7 @@ body {
    letter-spacing: 1px;
 }
 
+/* Parágrafo justificado */
 #espacamentos .justificado {
    text-align: justify;
    line-height: 1.8;
@@ -45,6 +50,7 @@ body {
    border-left: 4px solid #ffd369;
 }
 
+/* Parágrafo alinhado à direita */
 #espacamentos .direita {
    text-align: right;
    font-style: italic;
@@ -71,7 +77,7 @@ body {
    color: white;
    margin: 0;
    background-image: linear-gradient(to right, gray, black);
-   height: 85px; 
+   height: 85px; /* ALTURA DO HEADER - AJUSTE SE NECESSÁRIO */
    display: flex;
    align-items: center;
    justify-content: center;
@@ -135,16 +141,20 @@ input[type="range"] {
 
 /* --- Layout Principal (Container) --- */
 #leiaute-flex {
+   /* display: flex; */ /* REMOVIDO - nav e aside agora são fixed */
+   /* padding-left: 264px; */ /* REMOVIDO - main terá margens */
    box-sizing: border-box;
+   /* Este container agora serve principalmente para agrupar,
+      a menos que você adicione outros filhos diretos que não sejam main/nav/aside */
 }
 
 /* --- Navegação Fixa (Esquerda) --- */
 #leiaute-flex > nav {
     position: fixed;
-    top: 85px; 
+    top: 85px; /* Abaixo do header (altura do #topo) */
     left: 0;
-    width: 200px; 
-    height: calc(100vh - 85px); 
+    width: 200px; /* LARGURA da NAV - ajuste se necessário */
+    height: calc(100vh - 85px); /* Altura da tela menos header */
     overflow-y: auto;
     z-index: 900;
     background-color: rgb(113, 124, 123);
@@ -158,12 +168,17 @@ input[type="range"] {
 
 /* --- Conteúdo Principal (Central e Rolável) --- */
 main {
-   padding: 1px 32px; 
-   margin-left: 264px;  
-   margin-right: 314px; 
+   /* flex-grow: 1; */ /* REMOVIDO */
+   padding: 1px 32px; /* Adiciona padding interno vertical mínimo e horizontal */
+                        /* O 1px vertical ajuda a evitar colapso de margem com articles */
+   /* DEFINE MARGENS para dar espaço para NAV e ASIDE fixos */
+   margin-left: 264px;  /* Largura da NAV (200) + Padding NAV (32*2) */
+   margin-right: 314px; /* Largura do ASIDE (250) + Padding ASIDE (32*2) */
+   /* AJUSTE ESTAS MARGENS se a largura/padding da NAV ou ASIDE mudar */
    box-sizing: border-box;
 }
 
+/* --- Artigos dentro do Main (sem alterações significativas) --- */
 article {
    background-color: rgb(113, 124, 123);
    color: black;
@@ -177,21 +192,26 @@ article {
 
 /* --- Sidebar Fixa (Direita) --- */
 aside {
-    position: fixed; 
-    top: 85px;      
-    right: 0;       
-    width: 250px;   
-    height: calc(100vh - 85px); 
-    overflow-y: auto; 
-    z-index: 900;   
+    position: fixed; /* FIXA O ASIDE */
+    top: 85px;      /* Abaixo do header (altura do #topo) */
+    right: 0;       /* Alinha à direita */
+    width: 250px;   /* LARGURA do ASIDE - ajuste se necessário */
+    height: calc(100vh - 85px); /* Altura da tela menos header */
+    overflow-y: auto; /* Scroll interno se necessário */
+    z-index: 900;   /* Mesmo nível da NAV */
 
+    /* Estilos originais mantidos/ajustados */
     background-color: rgb(113, 124, 123);
     color: black;
     padding: 32px;
-    margin-left: 0; 
-    box-shadow: -4px 4px 4px 1px rgba(0, 0, 0, 0.4); 
-    border-radius: 0; 
+    /* margin-top: 32px; */ /* Removido */
+    /* margin-bottom: 32px; */ /* Removido */
+    margin-left: 0; /* Removido */
+    box-shadow: -4px 4px 4px 1px rgba(0, 0, 0, 0.4); /* Sombra para a esquerda */
+    border-radius: 0; /* Remove borda arredondada */
     box-sizing: border-box;
+    /* align-self: flex-start; */ /* Removido */
+    /* flex-shrink: 0; */ /* Removido */
 }
 
 /* --- Rodapé (sem alterações) --- */
@@ -261,13 +281,13 @@ footer p {
 /* --- Listas (ajustes de cor e nav mantidos) --- */
 ul, ol, dl { color: black; }
 
-nav ul, aside ul { 
+nav ul, aside ul { /* Aplicar estilo base à lista do aside também */
    list-style: none;
    padding: 0;
    margin: 0;
 }
 
-nav ul li a, aside ul li a { 
+nav ul li a, aside ul li a { /* Aplicar estilo base aos links do aside também */
     display: block;
     padding: 8px 0;
     color: black;
@@ -289,13 +309,15 @@ ol { list-style-type: upper-roman; }
 
 /* --- Links (ajustes de cor mantidos) --- */
 a:link, a:visited {
-   color: #0000EE; 
+   color: #0000EE; /* Azul padrão dentro do conteúdo principal */
    text-decoration: none;
 }
 a:hover, a:active {
-   color: #DD0000; 
+   color: #DD0000; /* Vermelho no hover/active */
    text-decoration: underline;
 }
+/* Links específicos de NAV/ASIDE já tratados */
+/* Links do Footer */
 footer a:link, footer a:visited { color: #bdbdbd; }
 footer a:hover, footer a:active { color: white; }
 
@@ -390,6 +412,7 @@ footer a:hover, footer a:active { color: white; }
    font-style: italic;
 }
 
+/* Subitens ganham destaque visual */
 #listas ul ul li {
    color: #666;
    background-color: #fff4d2;
@@ -397,18 +420,24 @@ footer a:hover, footer a:active { color: white; }
    padding: 2px 6px;
    border-radius: 4px;
 }
+
+/* Estilos dos membros e dos cards */
 .membros-container {
    padding: 20px;
    text-align: center;
    color: white;
 }
 
+/* Cards dos membros */
 .cards-membros {
    display: flex;
    gap: 20px;
    justify-content: center;
    flex-wrap: wrap;
 }
+
+/* Estilo de cada card */
+/* Estilos dos membros e dos cards */
 .membros-container {
    padding: 20px;
    text-align: center;
@@ -425,13 +454,13 @@ footer a:hover, footer a:active { color: white; }
 
 /* Estilo de cada card */
 .card-membro {
-   background-color: rgba(255, 255, 255, 0.2); 
-   padding: 15px; 
+   background-color: rgba(255, 255, 255, 0.2); /* fundo suave */
+   padding: 15px; /* Diminui o padding */
    border-radius: 10px;
-   width: 150px; 
+   width: 150px; /* Diminui a largura do card */
    text-decoration: none;
-   color: white; 
-   font-size: 1.1em; 
+   color: white; /* Nomes dentro do card serão brancos */
+   font-size: 1.1em; /* Diminui o tamanho da fonte */
    display: flex;
    justify-content: center;
    align-items: center;
@@ -440,25 +469,29 @@ footer a:hover, footer a:active { color: white; }
    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Quando o card é clicado (efeito hover) */
 .card-membro:hover {
-   transform: translateY(-5px); 
-   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); 
+   transform: translateY(-5px); /* eleva o card */
+   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* efeito de sombra mais forte */
 }
 
+/* Estilo para o campus em itálico */
 .campus {
    font-size: 1.2em;
-   color: white; 
+   color: white; /* Cor do texto do campus em branco */
    margin-top: 15px;
-   font-style: italic;
+   font-style: italic; /* Deixa o texto em itálico */
 }
 
+/* Adiciona ícone e nome */
 .card-membro span {
    font-size: 2em;
    margin-bottom: 10px;
 }
 
+/* Nome do membro em branco */
 .card-membro p {
-   color: white; 
+   color: white; /* Nomes dos membros em branco */
    margin: 0;
 }
 
@@ -470,22 +503,4 @@ footer a:hover, footer a:active { color: white; }
    font-size: 24px;
    margin: 20px 0;
 }
-.cartao {
-   background-color: #fdfdfd;
-   border: 1px solid #ddd;
-   border-radius: 10px;
-   padding: 12px 16px;
-   margin: 16px auto; 
-   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-   max-width: 400px; 
- }
- 
- 
- 
-
-
-
-
-
-
 
