@@ -7,9 +7,11 @@
     <link href="estilos.css" rel="stylesheet">
     <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon">
     <style>
+        /* Adicionado para teste de rolagem suave (opcional) */
         html {
             scroll-behavior: smooth;
-            
+            /* Se seu header for fixo, ajuste este valor para a altura dele */
+            /* scroll-padding-top: 60px; */
         }
     </style>
 </head>
@@ -35,8 +37,9 @@
             </ul>
         </nav>
         <main>
+            <!-- Seção Campos Modernos com ID corrigido -->
             <article id="campos-modernos">
-                <h2 class="titulo-articles">Registro para participar da turma</h2>
+                <h2 class="titulo-articles">Registro pra participar da turma</h2>
                 <form id="formulario">
                     <div class="campo">
                         <label for="email" class="campo-moderno">E-mail:</label>
@@ -77,15 +80,15 @@
                     atualizaNota();
 
                     document.getElementById('formulario').addEventListener('submit', function (event) {
-                        event.preventDefault(); 
+                        event.preventDefault(); // impede o envio real do formulário
                         const mensagem = document.getElementById('mensagem-enviada');
                         mensagem.textContent = "Agora você faz parte da melhor turma";
                         mensagem.style.display = "block";
                     });
                 </script>
-                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
+            <!-- Seção Tabelas com ID adicionado -->
             <article id="tabelas">
                 <h2 class="titulo-articles">Tabela de Preços de qualitativo</h2>
                 <p id="descricao-tabela">Consulte a tabela caso precise de nota que eu tô precisando de grana</p>
@@ -121,11 +124,10 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
                 <article class="comentario-simulado"
                     style="margin-top: 1em; padding: 0.5em; border-left: 3px solid #ccc; font-style: italic; color: #444;">
-                    <p><strong>Comentário - por Shara:</strong> Quem colocou essa mulecagem aí? Naah, já sei... °_°
-                        Aceito deixar, mas o responsável vai ter que me dar R$600,00 (21/04/25 - 18:30)</p>
+                    <p><strong>Comentário (Shara):</strong> Quem colocou essa mulecagem aí? Naah, já sei... °_°
+                        Aceito deixar, mas o responsável vai ter que me dar R$600,00</p>
                 </article>
             </article>
 
@@ -154,7 +156,6 @@
                 <dd>ESTE</dd>
                 <dd>RCO</dd>
                 Está interessado em comprar RCO ?
-                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
 
@@ -176,7 +177,6 @@
                     about it, you will find a core feeling that made that decision (empathy, for example, is a feeling
                     that makes you make a decision because it will be good for someone else other than you), as all
                     things everyone does in life.</p>
-                    <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
 
@@ -201,13 +201,14 @@
                     <option value="Tahoma">Tahoma</option>
                     <option value="Impact">Impact</option>
                 </select>
-                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
             </article>
 
             <script>
                 function alterarFonte() {
+                    // Obtém a fonte selecionada no select
                     const fonteSelecionada = document.getElementById('fontes-select').value;
 
+                    // Alterar a fonte da frase
                     document.getElementById('frase').style.fontFamily = fonteSelecionada;
                 }
             </script>
@@ -217,11 +218,10 @@
             <!-- Este artigo (Negrito, itálico) não tem link na navegação, não precisa de ID -->
             <article>
                 <h2 class="titulo-articles">Negrito, itálico etc...</h2>
-                <p class="negrito cartao">Esta frase está em NEGRITO!!!</p>
-                <p class="italico cartao">Esta frase está em ITALICO!!!</p>
-                <p class="sublinhado cartao">Esta frase está SUBLINHADA!!!</p>
-                <p class="tachado cartao">Esta frase está TACHADA!!!</p>
-                <p class="data-autor direita">21/04/2025 - por Anônimo</p>
+                <p class="negrito">Negrito</p>
+                <p class="italico">Italico</p>
+                <p class="sublinhado">sublinhado</p>
+                <p class="tachado">Tachado</p>
             </article>
 
             <!-- Seção Cores com ID adicionado -->
@@ -274,13 +274,12 @@
                         <p style="color: #ffc0cb;">Rosa</p>
                     </div>
                 </div>
-                <p class="data-autor direita">20/04/2025 - por Anônimo</p>
             </article>
 
 
 
 
-            <!-- Seção Símbolos com ID-->
+            <!-- Seção Símbolos com ID adicionado -->
             <article id="simbolos">
                 <h2 class="titulo-articles">Aprendendo sobre símbolos e emojis</h2>
                 <p>A primeira tag de uma página é a tag é a <html>
@@ -290,7 +289,6 @@
                 <p>Iene japonês: ¥</p>
                 <p>Ômega: Ω</p>
                 <p>Smiley:  </p>
-                <p class="data-autor direita">19/04/2025 - por Anônimo</p>
             </article>
 
             <!-- Seção Sobre o IFPI com ID correspondente -->
@@ -300,7 +298,6 @@
                 <p>Seguem abaixo o link para a página e logo abaixo a sua logomarca:</p>
                 <p><a href="http://www.ifpi.edu.br">Página do IFPI</a></p>
                 <img src="https://www.ifpi.edu.br/topo_ifpi.png" alt="Logomarca do IFPI">
-                <p class="data-autor direita">18/04/2025 - por Anônimo</p>
             </article>
         </main>
         <aside>
@@ -339,6 +336,7 @@
             // Seleciona todos os links com a classe 'voltar-topo'
             const linksTopo = document.querySelectorAll('.voltar-topo');
 
+            // Adiciona um ouvinte de evento de clique para cada link encontrado
             linksTopo.forEach(link => {
                 link.addEventListener('click', function (event) {
                     // 1. Previne o comportamento padrão do link de âncora
